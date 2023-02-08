@@ -87,6 +87,7 @@ namespace PetStore
                         p.CustomerName = customerNameText;
 
                         SqliteDataAccess.SaveCustomer(p);
+                        Console.WriteLine(customerNameText + " has succesfully been added to the database");
                         break;
                     case 3:
                         Console.Clear();
