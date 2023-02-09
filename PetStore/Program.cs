@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using PetStore;
+using System.Globalization;
 
 namespace PetStore
 {
@@ -152,7 +153,9 @@ namespace PetStore
                         try
                         {
                             Console.WriteLine("Please enter the category that you want to view (Cat or Dog)");
+                            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                             string SelectedCategory = Console.ReadLine();
+                            SelectedCategory = textInfo.ToTitleCase(SelectedCategory);
                             var result2 = from element in ProductList
                                           where element.ProductCategory == SelectedCategory
                                           select element;
